@@ -18,15 +18,15 @@
         </header>
 
         <select v-model="selected">
-          <option disabled value="">Please select one</option>
+          <option value="">Tutti gli album</option>
           <option>Pop</option>
           <option>Rock</option>
           <option>Jazz</option>
+          <option>Metal</option>
         </select>
-        <span>Selected: {{ selected }}</span>
 
         <div class="cds-container container">
-            <div class="cd" v-for="item in listaDischi">
+            <div class="cd" v-for="item in listaDischi" v-if="item.genre == selected || selected == ''">
                 <img :src="item.poster" alt="">
                 <h3>{{item.title}}</h3>
                 <span class="author">{{item.author}}</span>
